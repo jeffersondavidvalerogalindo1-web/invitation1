@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Gracias por aceptar</title>
+
+    <style>
+        body {
+            background-color: #f4f6f8;
+            overflow: hidden;
+            margin: 0;
+            font-family: "Segoe UI", Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .box {
+            background-color: white;
+            padding: 50px;
+            border-radius: 16px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            animation: fadeIn 1s ease;
+            z-index: 2;
+        }
+
+        .box h1 {
+            color: #2c3440;
+            margin-bottom: 15px;
+        }
+
+        .box p {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: hsl(var(--hue), 70%, 60%);
+            top: -10px;
+            animation: fall linear forwards;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(110vh) rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h1>¡Muchas gracias por aceptar la invitación!</h1>
+    <p>Nos complace contar con su participación en el evento</p>
+    <p><strong>People Analytics y HR Tech</strong></p>
+    <p><strong>Fecha:</strong> 17/02/26</p>
+    <p><strong>Lugar:</strong> Aula Máxima</p>
+</div>
+
+<script>
+    for (let i = 0; i < 120; i++) {
+        const confetti = document.createElement("div");
+        confetti.classList.add("confetti");
+        confetti.style.left = Math.random() * 100 + "vw";
+        confetti.style.animationDuration = (Math.random() * 3 + 2) + "s";
+        confetti.style.setProperty("--hue", Math.random() * 360);
+        document.body.appendChild(confetti);
+    }
+</script>
+
+</body>
+</html>
